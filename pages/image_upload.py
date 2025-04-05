@@ -1,4 +1,5 @@
 import streamlit as st
+import image_encode as ie #python code to encode images using cv2
 #import cv2
 # from PIL import Image
 
@@ -32,9 +33,15 @@ if st.session_state.image_up:
     def click_classify():
         #st.session_state.class_clicked = True
         st.write('Classifying Images!')
+        img_list = []
+        print(len(img_list))
         for i in range(len(images)):
             print(f'Image {i}')
             print(images[i])
+            img_enc = ie.img_encode(images[i])
+            print(img_enc)
+            img_list.append(img_enc)
+        print(len(img_list))
 
     st.button('Classify Image(s)', on_click=click_classify)
 
