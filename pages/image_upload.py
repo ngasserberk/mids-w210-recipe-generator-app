@@ -1,4 +1,5 @@
 import streamlit as st
+#import cv2
 # from PIL import Image
 
 st.title("Image Upload")
@@ -14,14 +15,37 @@ images = st.file_uploader(
     accept_multiple_files=True,
 )
 
+
 if images:
     st.session_state.image_up = True
 
 #after images uploaded
 if st.session_state.image_up:
 
-    #add button to generate images
-    st.button("Upload Image(s)")
+    #add button to classify images
+    # st.button("Classify Image(s)")
+
+    #image classification button
+    if 'class_clicked' not in st.session_state:
+        st.session_state.class_clicked = False
+    
+    def click_classify():
+        #st.session_state.class_clicked = True
+        st.write('Classifying Images!')
+        for i in range(len(images)):
+            print(f'Image {i}')
+            print(images[i])
+
+    st.button('Classify Image(s)', on_click=click_classify)
+
+    #if st.session_state.class_clicked:
+        # The message and nested widget will remain on the page
+        # st.write('Classifying Images!')
+        # for i in range(len(images)):
+        #     print(f'Image {i}')
+        #     print(images[i])
+
+
 
     #display images
     st.image(images)
