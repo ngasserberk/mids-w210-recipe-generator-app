@@ -62,8 +62,7 @@ if st.session_state.image_up:
             ing_dict_all.update(ing_dict)
 
         #sort ingredient dictionary
-        ing_dict_all = {'Lettuce': 0.97, 'Bell Pepper': 0.96, 'Lemon': 0.96, 'Onion': 0.96, 'Chicken': 0.95}
-        # ing_dict_all = dict(sorted(ing_dict_all.items(), key=lambda item: item[1], reverse=True))
+        ing_dict_all = dict(sorted(ing_dict_all.items(), key=lambda item: item[1], reverse=True))
 
         st.session_state['ingreds'] = ing_dict_all
         
