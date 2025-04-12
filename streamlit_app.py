@@ -1,16 +1,16 @@
 import streamlit as st
 
-# #title
-# st.title('Recipe Generator')
+#main file to run to load app
 st.logo("logo.png")
 
 #set configurations
 st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
-    page_icon=":sushi:"
+    page_icon=":taco:"
 )
 
+#page navigation
 pages = [
     st.Page(
         "pages/home_page.py",
